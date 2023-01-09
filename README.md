@@ -4,44 +4,45 @@
 
 | Column             | Type   | Options                   |
 | ------------------ | ------ | ------------------------- |
-| nickname           | string | null: false, unique: true |
-| email              | string | null: false               |
+| nickname           | string | null: false               |
+| email              | string | null: false, unique: true |
 | encrypted_password | string | null: false               |
 | first_name         | string | null: false               |
 | last_name          | string | null: false               |
-| birthday           | string | null: false               |
+| first_name_kana    | string | null: false               |
+| last_name_kana     | string | null: false               |
+| birthday           | date   | null: false               |
 
 ### Association
 
 - has_many :items
-- has_one :delivery
+- has_one :buy
 
 ## itemsテーブル
 
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| name            | string     | null: false                    |
-| detail          | text       | null: false                    |
-| category        | string     | null: false                    |
-| condition       | string     | null: false                    |
-| delivery_charge | string     | null: false                    |
-| delivery_area   | string     | null: false                    |
-| delivery_day    | string     | null: false                    |
-| price           | string     | null: false                    |
-| user_id         | references | null: false, foreign_key: true |
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| name               | string     | null: false                    |
+| detail             | text       | null: false                    |
+| category_id        | integer    | null: false                    |
+| condition_id       | integer    | null: false                    |
+| delivery_charge    | string     | null: false                    |
+| delivery_area      | string     | null: false                    |
+| delivery_day       | string     | null: false                    |
+| price              | integer    | null: false                    |
+| user               | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - has_one :buy
-- has_many :deliverys
 
 ## buysテーブル
 
-| Column         | Type       | Options                        |
-| -------------- | ---------- | ------------------------------ |
-| item_id        | references | null: false, foreign_key: true |
-| user_id        | references | null: false, foreign_key: true |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| item   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
 
 ### Association 
 
@@ -54,15 +55,13 @@
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | postal_code      | string     | null: false                    |
-| prefecture       | string     | null: false                    |
+| prefecture_id    | integer    | null: false                    |
 | municipalities   | string     | null: false                    |
 | address          | string     | null: false                    |
 | building         | string     |                                |
 | telephone_number | string     | null: false                    |
-| item_id          | references | null: false, foreign_key: true |
+| buy              | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_one :user
-- has_many :items
 - belongs_to :buy
