@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_one :buy
+- has_many :buys
 
 ## itemsテーブル
 
@@ -26,9 +26,9 @@
 | detail             | text       | null: false                    |
 | category_id        | integer    | null: false                    |
 | condition_id       | integer    | null: false                    |
-| delivery_charge    | string     | null: false                    |
-| delivery_area      | string     | null: false                    |
-| delivery_day       | string     | null: false                    |
+| delivery_charge_id | integer    | null: false                    |
+| delivery_area_id   | integer    | null: false                    |
+| delivery_day_id    | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
