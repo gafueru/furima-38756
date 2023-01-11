@@ -11,5 +11,4 @@ class User < ApplicationRecord
         end
         validates :password, :password_confirmation,
         format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
-      end
 end
