@@ -1,4 +1,4 @@
-class Delivery_area < ActiveHash::Base
+class DeliveryArea < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
     { id: 2, name: '北海道' },
@@ -52,5 +52,5 @@ class Delivery_area < ActiveHash::Base
 
 include ActiveHash::Associations
   has_many :item
-  
+
 end
