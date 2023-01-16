@@ -63,4 +63,8 @@ group :production do
   gem 'pg'
 end
 gem 'devise'
+gem 'active_hash'
 gem 'pry-rails'
+gem 'image_processing', '~> 1.2'
+gem 'mini_magick'
+
