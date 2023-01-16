@@ -77,6 +77,31 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('User must exist')
       end
+      it 'cateroty_idが未選択の場合' do
+        @item.category_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category can't be blank")
+      end
+      it 'condition_idが未選択の場合' do
+        @item.condition_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Condition can't be blank")
+      end
+      it 'delivery_charge_idが未選択の場合' do
+        @item.delivery_charge_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery charge can't be blank")
+      end
+      it 'delivery_area_idが未選択の場合' do
+        @item.delivery_area_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery area can't be blank")
+      end
+      it 'delivery_day_idが未選択の場合' do
+        @item.delivery_day_id = '1'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery day can't be blank")
+      end
     end
   end
 end
