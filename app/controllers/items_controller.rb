@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: %i[new edit]
+  before_action :set_item, only: %i[show edit update move_to_index]
   before_action :move_to_index, except: %i[index new create show]
-  before_action :set_item, only: %i[show edit update]
+  
+
   def index
     @item = Item.all.order(created_at: :desc)
   end
@@ -39,7 +41,6 @@ class ItemsController < ApplicationController
   end
 
   def move_to_index
-    @item = Item.find(params[:id])
     return if @item.user == current_user
 
     redirect_to action: :index
