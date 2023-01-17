@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: :new
-  before_action :move_to_index, except: [:index, :new, :create, :show]
+  before_action :move_to_signed_in, except: %i[index show]
+  before_action :move_to_index, except: %i[index new create show]
 
   def index
     @item = Item.all.order(created_at: :desc)
@@ -43,10 +44,16 @@ class ItemsController < ApplicationController
                                  :delivery_area_id, :delivery_day_id, :price).merge(user_id: current_user.id)
   end
 
-   def move_to_index
-   @item = Item.find(params[:id])
-   return if @item.user == current_user
+  def move_to_index
+    @item = Item.find(params[:id])
+    return if @item.user == current_user
 
-   redirect_to action: :index
-   end
+    redirect_to action: :index
+  end
+
+  def move_to_signed_in
+    return if user_signed_in?
+
+    redirect_to '/users/sign_in'
+  end
 end
