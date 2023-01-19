@@ -3,6 +3,11 @@ class BuysController < ApplicationController
   def index
   end
 
+
+  def new
+    @buy_delivery = BuyDelivery.new
+  end
+
   def create
     @buy_delivery = BuyDelivery.new(buy_params)
     if @buy_delivery.valid?
