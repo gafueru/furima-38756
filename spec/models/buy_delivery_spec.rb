@@ -69,6 +69,11 @@ RSpec.describe BuyDelivery, type: :model do
         @buy_delivery.valid?
         expect(@buy_delivery.errors.full_messages).to include("Telephone number is invalid")
       end
+      it 'tokenが空の場合' do
+        @buy_delivery.token = nil
+        @buy_delivery.valid?
+        expect(@buy_delivery.errors.full_messages).to include("Token can't be blank")
+      end
     end
   end
 end
