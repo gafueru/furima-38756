@@ -20,11 +20,11 @@ const pay = () => {
         const renderDom = document.getElementById("charge-form");
         const tokenObj = `<input value=${token} type="hidden" name='token'>`;
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
+      }
         numberElement.clear();
         expiryElement.clear();
         cvcElement.clear();
         document.getElementById("charge-form").submit();
-      }
     });
   });
 };
