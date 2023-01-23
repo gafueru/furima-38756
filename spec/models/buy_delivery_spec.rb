@@ -74,6 +74,16 @@ RSpec.describe BuyDelivery, type: :model do
         @buy_delivery.valid?
         expect(@buy_delivery.errors.full_messages).to include("Token can't be blank")
       end
+      it 'user_idが空の場合' do
+        @buy_delivery.user_id = nil
+        @buy_delivery.valid?
+        expect(@buy_delivery.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空の場合' do
+        @buy_delivery.item_id = nil
+        @buy_delivery.valid?
+        expect(@buy_delivery.errors.full_messages).to include("Item can't be blank")
+      end
     end
   end
 end

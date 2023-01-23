@@ -25,7 +25,6 @@ const pay = () => {
         cvcElement.clear();
         document.getElementById("charge-form").submit();
       }
-    });
   });
 };
 
