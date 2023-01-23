@@ -27,7 +27,7 @@ RSpec.describe BuyDelivery, type: :model do
       it 'postal_codeが半角のハイフンを含んでいない場合' do
         @buy_delivery.postal_code = '1234567'
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@buy_delivery.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
       it 'delivery_area_idが空の場合' do
         @buy_delivery.delivery_area_id = ''
@@ -57,17 +57,17 @@ RSpec.describe BuyDelivery, type: :model do
       it 'telephone_numberが10桁より少ない場合' do
         @buy_delivery.telephone_number = '090123456'
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include("Telephone number is invalid")
+        expect(@buy_delivery.errors.full_messages).to include('Telephone number is invalid')
       end
       it 'telephone_numberが11桁より多い場合' do
         @buy_delivery.telephone_number = '090123456789'
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include("Telephone number is invalid")
+        expect(@buy_delivery.errors.full_messages).to include('Telephone number is invalid')
       end
       it 'telephone_numberが半角数字じゃない場合' do
         @buy_delivery.telephone_number = '０９０１２３４５６７８'
         @buy_delivery.valid?
-        expect(@buy_delivery.errors.full_messages).to include("Telephone number is invalid")
+        expect(@buy_delivery.errors.full_messages).to include('Telephone number is invalid')
       end
       it 'tokenが空の場合' do
         @buy_delivery.token = nil

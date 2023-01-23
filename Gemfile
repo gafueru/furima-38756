@@ -66,5 +66,5 @@ gem 'active_hash'
 gem 'devise'
 gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
-gem 'pry-rails'
-gem 'payjp'
+gem 'payjp'gem 'pry-rails'
+
